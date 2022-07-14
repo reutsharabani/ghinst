@@ -30,18 +30,19 @@
                        (.preventDefault e)
                        (re-frame/dispatch [:add]))}])
 
-(defn comparator []
+(defn comparator-view []
   (let [sorting (re-frame/subscribe [::subs/sorting])
         thing-1 (re-frame/subscribe [::subs/thing-1])
         thing-2 (re-frame/subscribe [::subs/thing-2])]
     (when @sorting
       [:div
-       "which is better?"
+       "which is better? "
        [:input {:type "button"
                 :value @thing-1
                 :on-click (fn [e]
                             (.preventDefault e)
                             (re-frame/dispatch [:choose @thing-1 @thing-2]))}]
+       " or "
        [:input {:type "button"
                 :value @thing-2
                 :on-click (fn [e]
@@ -55,9 +56,9 @@
    [list-of-things]
    [:br]
    [sort-button]
-   [comparator]])
+   [comparator-view]])
 
 (defn main-panel []
-  (let [name (re-frame/subscribe [::subs/name])]
-    [:div
-     [sorter]]))
+  [:div
+   [:h1 "Add things and sort them" ] [:h5 "(or don't idc)"]
+   [sorter]])
