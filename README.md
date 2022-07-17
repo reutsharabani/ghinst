@@ -1,3 +1,3 @@
 sort things
 
-try here: http://ghist.live
+try here: http://ghinst.live
