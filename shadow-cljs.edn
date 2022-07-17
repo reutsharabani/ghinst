@@ -26,4 +26,5 @@
    :dev
    {:compiler-options
     {:closure-defines
-     { }}}}}}
+     { }}}
+   :release {:compiler-options {:optimizations :simple}}}}}
